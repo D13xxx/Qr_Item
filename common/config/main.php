@@ -30,5 +30,12 @@ return [
             'class' => 'mdm\admin\Module',
         ],
     ],
+//    'as access' => [
+//        'class' => 'mdm\admin\components\AccessControl',
+//        'allowActions' => [
+//            'site/*',
+//            'admin/*',
+//        ]
+//    ],
 
 ];

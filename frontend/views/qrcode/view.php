@@ -121,7 +121,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value'=>function($data){
                             if($data->san_pham_id!=0){
                                 $sanPham=\backend\models\SanPham::find()->where(['id'=>$data->san_pham_id])->one();
-                                return Html::img(Yii::getAlias('@web').'/qr-code/'.$sanPham->anh_qr,[
+//                                return Html::img(Yii::getAlias('@web').'/qr-code/'.$sanPham->anh_qr,[
+//                                    'style'=>[
+//                                        'width'=>'100px',
+//                                        'height'=>'100px',
+//                                    ]
+//                                ]);
+                                return Html::img('@FakeLink/'. $sanPham->anh_qr,[
                                     'style'=>[
                                         'width'=>'100px',
                                         'height'=>'100px',
@@ -132,6 +138,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             }
                         }
                     ],
+
                     [
                         'label'=>'Từ sản phẩm (Tên)',
                         'format'=>'html',
