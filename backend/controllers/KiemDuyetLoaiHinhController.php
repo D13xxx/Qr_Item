@@ -3,8 +3,8 @@
 namespace backend\controllers;
 use app\models\Dungchung;
 use Yii;
-use backend\models\LoaiHinh;
-use backend\models\LoaiHinhSearch;
+use app\models\LoaiHinh;
+use app\models\LoaiHinhSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
