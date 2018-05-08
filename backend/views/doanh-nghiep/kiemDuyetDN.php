@@ -26,23 +26,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterModel' => $searchModel,
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
-                    // 'id',
                     ['attribute'=>'ma','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
                     ['attribute'=>'ten','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
-                    // 'ten_giao_dich',
-                    'dia_chi:ntext',
-                    'nguoi_dai_dien',
-                    // 'so_dang_ky_kinh_doanh',
-                    'dien_thoai',
-                    // [
-                    //    'attribute'=>'loai_hinh_id',
-                    //    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
-                    //    'filter'=>\yii\helpers\ArrayHelper::map(\app\models\LoaiHinh::find()->all(),'id','ten'),
-                    //    'value'=>function($data){
-                    //        $loaiHinh=\app\models\LoaiHinh::find()->where(['id'=>$data->loai_hinh_id])->one();
-                    //        return $loaiHinh->ten;
-                    //    }
-                    // ],
+                    [
+                        'attribute'=>'logo_doanh_nghiep',
+                        'format'=>'raw',
+                        'value'=>function($data){
+                            if($data->logo_doanh_nghiep!==''||$data->logo_doanh_nghiep!==null){
+                                return Html::img(Yii::getAlias('@web').'/images/doanh-nghiep/'.$data->logo_doanh_nghiep,[
+                                    'style'=>[
+                                        'width'=>'120px',
+                                        'height'=>'120px',
+                                    ]
+                                ]);
+                            }
+                        }
+                    ],
+                    [
+                        'attribute'=>'dien_thoai',
+                        'contentOptions'=>['style'=>['vertical-align'=>'middle']],
+                    ],
+                    [
+                        'attribute'=>'nguoi_dai_dien',
+                        'contentOptions'=>['style'=>['vertical-align'=>'middle']],
+                    ],
                     [
                         'attribute'=>'ngay_tao',
                         'contentOptions'=>['style'=>['vertical-align'=>'middle']],
@@ -70,24 +77,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $nguoiTao->username;
                         }
                     ],
-                    // [
-                    //     'attribute'=>'ngay_cap_nhat',
-                    //     'contentOptions'=>['style'=>['vertical-align'=>'middle']],
-                    //     'filter'=>\kartik\widgets\DatePicker::widget([
-                    //         'model'=>$searchModel,
-                    //         'attribute'=>'ngay_cap_nhat',
-                    //         'pluginOptions' => [
-                    //             'autoclose'=>true,
-                    //             'format'=>'dd/mm/yyyy',
-                    //             'todayHighlight' => true,
-                    //         ]
-                    //     ]),
-                    //     'value'=>function($data)
-                    //     {
-                    //         return date("d/m/Y",strtotime($data->ngay_cap_nhat));
-                    //     }
-                    // ],
-
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'contentOptions'=>['style'=>['vertical-align'=>'middle']],
