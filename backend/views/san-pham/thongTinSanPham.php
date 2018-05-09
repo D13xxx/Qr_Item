@@ -44,6 +44,20 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]);
                         }
                     ],
+                    [
+                        'attribute'=>'anh_dai_dien',
+                        'format'=>'raw',
+                        'value'=>function($data){
+                            if($data->anh_dai_dien!==''||$data->anh_dai_dien!==null){
+                                return Html::img(Yii::getAlias('@web').'/images/san-pham/'.$data->anh_dai_dien,[
+                                    'style'=>[
+                                        'width'=>'120px',
+                                        'height'=>'120px',
+                                    ]
+                                ]);
+                            }
+                        }
+                    ],
                     'ma',
                     'ten',
                    [

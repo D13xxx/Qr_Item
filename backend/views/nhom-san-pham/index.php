@@ -98,6 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-share-alt"></span>',$url,[
                                     'title'=>'Chuyển duyệt',
                                     'data'=>['method'=>'post'],
+                                    'class'=>'btn btn-default'
                                 ]);
                             }
                         ]

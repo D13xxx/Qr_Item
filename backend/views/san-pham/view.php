@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\SanPham */
 
 $this->title = 'Danh mục chi tiết sản phẩm';
-$this->params['breadcrumbs'][] = ['label' => 'San Phams', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Danh mục sản phẩm', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->ten;
 ?>
 <div class="san-pham-view">
@@ -35,6 +35,20 @@ $this->params['breadcrumbs'][] = $model->ten;
                                         'height'=>'120px',
                                     ]
                                 ]);
+                            }
+                        ],
+                        [
+                            'attribute'=>'anh_dai_dien',
+                            'format'=>'raw',
+                            'value'=>function($data){
+                                if($data->anh_dai_dien!==''||$data->anh_dai_dien!==null){
+                                    return Html::img(Yii::getAlias('@web').'/images/san-pham/'.$data->anh_dai_dien,[
+                                        'style'=>[
+                                            'width'=>'120px',
+                                            'height'=>'120px',
+                                        ]
+                                    ]);
+                                }
                             }
                         ],
                         [

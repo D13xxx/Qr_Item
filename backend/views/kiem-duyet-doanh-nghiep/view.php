@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute'=>'loai_hinh_id',
                         'value'=>function($data)
                         {
-                            $loaiHinh=\backend\models\LoaiHinh::find()->where(['id'=>$data->loai_hinh_id])->one();
+                            $loaiHinh=\app\models\LoaiHinh::find()->where(['id'=>$data->loai_hinh_id])->one();
                             return $loaiHinh->ten;
                         }
                     ],

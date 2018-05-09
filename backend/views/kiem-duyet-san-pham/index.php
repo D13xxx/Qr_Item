@@ -38,6 +38,20 @@ $this->params['breadcrumbs'][] = $this->title;
                             ]);
                         }
                     ],
+                    [
+                        'attribute'=>'anh_dai_dien',
+                        'format'=>'raw',
+                        'value'=>function($data){
+                            if($data->anh_dai_dien!==''||$data->anh_dai_dien!==null){
+                                return Html::img(Yii::getAlias('@web').'/images/san-pham/'.$data->anh_dai_dien,[
+                                    'style'=>[
+                                        'width'=>'120px',
+                                        'height'=>'120px',
+                                    ]
+                                ]);
+                            }
+                        }
+                    ],
                     ['attribute'=>'ma','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
                     ['attribute'=>'ten','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
                      [
@@ -116,6 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-ok"></span>',$url,[
                                     'title'=>'Duyệt sản phẩm',
                                     'data'=>['method'=>'post'],
+                                    'class'=>'btn btn-success'
                                 ]);
                             },
                             'khong-duyet'=>function($url,$data){
@@ -123,6 +138,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-remove"></span>',$url,[
                                     'title'=>'Không duyệt sản phẩm',
                                     'data'=>['method'=>'post'],
+                                    'class'=>'btn btn-danger'
                                 ]);
                             }
                         ],

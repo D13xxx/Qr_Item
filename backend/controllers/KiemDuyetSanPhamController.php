@@ -71,7 +71,7 @@ class KiemDuyetSanPhamController extends \yii\web\Controller
         $model->trang_thai=SanPham::SP_DUYET;
         if($model->save()){
             Yii::$app->session->setFlash('success','Kiểm duyệt sản phẩm thành công.');
-            return $this->redirect('index.php?r=san-pham/da-duyet');
+            return $this->redirect('../san-pham/da-duyet');
         }
     }
 
@@ -83,7 +83,7 @@ class KiemDuyetSanPhamController extends \yii\web\Controller
         $model->trang_thai=SanPham::SP_KHONG_DUYET;
         if($model->save()){
             Yii::$app->session->setFlash('success','Không duyệt sản phẩm thành công.');
-            return $this->redirect('index');
+            return $this->redirect('../san-pham/index');
         }
     }
 }

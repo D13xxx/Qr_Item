@@ -48,7 +48,7 @@ class SanPham extends \yii\db\ActiveRecord
             [['ngay_tao', 'ngay_cap_nhat'], 'safe'],
             [['ma'], 'string', 'max' => 50],
             [['ten', 'dvt'], 'string', 'max' => 256],
-            // [['anh_dai_dien'], 'string', 'max' => 500],
+             [['anh_dai_dien'], 'string', 'max' => 500],
         ];
     }
 
@@ -62,6 +62,7 @@ class SanPham extends \yii\db\ActiveRecord
             'ma' => 'Mã',
             'ten' => 'Tên',
             'anh_qr' => 'QR_Code',
+            'anh_dai_dien'=>'Ảnh đại diện',
             'nhom_san_pham_id' => 'Nhóm sản phẩm',
             'ngay_tao' => 'Ngày tạo',
             'nguoi_tao' => 'Người tạo',

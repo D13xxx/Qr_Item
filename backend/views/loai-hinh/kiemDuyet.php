@@ -75,15 +75,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'template'=>'{view} {update} {delete}',
-                        'buttons'=>[
-                            'view'=>function($url,$data){
-                                $url=\yii\helpers\Url::to(['/loai-hinh/xem-kiem-duyet','id'=>$data->id]);
-                                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>',$url,[
-                                    'title'=>'Thông tin chi tiết loại hình',
-                                ]);
-
-                            }
-                        ]
+//                        'buttons'=>[
+//                            'view'=>function($url,$data){
+//                                $url=\yii\helpers\Url::to(['/loai-hinh/xem-kiem-duyet','id'=>$data->id]);
+//                                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>',$url,[
+//                                    'title'=>'Thông tin chi tiết loại hình',
+//                                ]);
+//
+//                            }
+//                        ]
                     ],
                 ],
             ]); ?>

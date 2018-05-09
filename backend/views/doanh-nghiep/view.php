@@ -26,6 +26,20 @@ $this->params['breadcrumbs'][] = $model->ten;
                         'id',
                         'ma',
                         'ten',
+                        [
+                            'attribute'=>'logo_doanh_nghiep',
+                            'format'=>'raw',
+                            'value'=>function($data){
+                                if($data->logo_doanh_nghiep!==''||$data->logo_doanh_nghiep!==null){
+                                    return Html::img(Yii::getAlias('@web').'/images/doanh-nghiep/'.$data->logo_doanh_nghiep,[
+                                        'style'=>[
+                                            'width'=>'120px',
+                                            'height'=>'120px',
+                                        ]
+                                    ]);
+                                }
+                            }
+                        ],
                         'ten_giao_dich',
                         'dia_chi',
                         'nguoi_dai_dien',
@@ -35,9 +49,9 @@ $this->params['breadcrumbs'][] = $model->ten;
                         [
                            'attribute'=>'loai_hinh_id',
                            'contentOptions'=>['style'=>['vertical-align'=>'middle']],
-                           'filter'=>\yii\helpers\ArrayHelper::map(\backend\models\LoaiHinh::find()->all(),'id','ten'),
+                           'filter'=>\yii\helpers\ArrayHelper::map(\app\models\LoaiHinh::find()->all(),'id','ten'),
                            'value'=>function($data){
-                               $loaiHinh=\backend\models\LoaiHinh::find()->where(['id'=>$data->loai_hinh_id])->one();
+                               $loaiHinh=\app\models\LoaiHinh::find()->where(['id'=>$data->loai_hinh_id])->one();
                                return $loaiHinh->ten;
                            }
                         ],

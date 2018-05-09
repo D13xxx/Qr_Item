@@ -80,12 +80,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 $url=\yii\helpers\Url::to(['kiem-duyet','id'=>$data->id]);
                                 return Html::a('<span class="glyphicon glyphicon-ok"></span>',$url,[
                                     'title'=>'Duyệt nhóm sản phẩm',
+                                    'class'=>'btn btn-success'
                                 ]);
                             },
                             'khong-duyet'=>function($url,$data){
                                 $url=\yii\helpers\Url::to(['khong-duyet-nhom-san-pham','id'=>$data->id]);
                                 return Html::a('<span class="glyphicon glyphicon-remove"></span>',$url,[
                                     'title'=>'Không duyệt nhóm sản phẩm',
+                                    'class'=>'btn btn-danger'
                                 ]);
                             }
                         ],

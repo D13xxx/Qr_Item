@@ -76,15 +76,7 @@ class NhomSanPhamController extends Controller
             $model->trang_thai=NhomSanPham::NHOM_MOI;
             $model->nguoi_tao=Yii::$app->user->id;
             $model->ngay_tao=date("Y-m-d");
-            // $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
-            // if(!is_null($fileUpload)){
-            //     $fileTam=$fileUpload->name;
-            //     Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/nhom-san-pham/';
-            //     $path=Yii::$app->params['uploadPath'].$fileTam;
-            //     $model->anh_dai_dien=$fileTam;
-            //     $fileUpload->saveAs($path);
 
-            // }
             if($model->save())
             {
                 Yii::$app->session->setFlash('success','Thêm nhóm sản phẩm mới thành công');
@@ -116,17 +108,17 @@ class NhomSanPhamController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->nguoi_cap_nhat=Yii::$app->user->id;
             $model->ngay_cap_nhat=date("Y-m-d");
-            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
-            if(!is_null($fileUpload)){
-                $fileTam=$fileUpload->name;
-                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/nhom-san-pham/';
-                $path=Yii::$app->params['uploadPath'].$fileTam;
-                $model->anh_dai_dien=$fileTam;
-                $fileUpload->saveAs($path);
-
-            } else {
-                $model->anh_dai_dien=$anhCu;
-            }
+//            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
+////            if(!is_null($fileUpload)){
+////                $fileTam=$fileUpload->name;
+////                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/nhom-san-pham/';
+////                $path=Yii::$app->params['uploadPath'].$fileTam;
+////                $model->anh_dai_dien=$fileTam;
+////                $fileUpload->saveAs($path);
+////
+////            } else {
+////                $model->anh_dai_dien=$anhCu;
+////            }
             if($model->save()){
                 Yii::$app->session->setFlash('success','Cập nhật thông tin nhóm sản phẩm thành công.');
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -177,7 +169,7 @@ class NhomSanPhamController extends Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Chuyển duyệt thành công.');
-            return $this->redirect('index.php?r=kiem-duyet-nhom-san-pham%2Findex');
+            return $this->redirect('../kiem-duyet-nhom-san-pham/index');
         }
     }
 

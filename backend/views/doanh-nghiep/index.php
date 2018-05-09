@@ -26,11 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ['class' => 'yii\grid\SerialColumn','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
                                 ['attribute'=>'ma','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
                                 ['attribute'=>'ten','contentOptions'=>['style'=>['vertical-align'=>'middle']]],
-                                // 'ten_giao_dich',
-                                //'dia_chi:ntext',
-                                // 'nguoi_dai_dien',
-                                //'so_dang_ky_kinh_doanh',
-                                // 'dien_thoai',
                                 [
                                    'attribute'=>'loai_hinh_id',
                                    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
@@ -86,11 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         return $nguoiTao->username;
                                     }
                                 ],
-
-//                                'nguoi_cap_nhat',
-                                //'ngay_cap_nhat',
-                                'loai_hinh_id',
-
                                 [
                                     'class' => 'yii\grid\ActionColumn',
                                     'contentOptions'=>['style'=>['vertical-align'=>'middle']],
@@ -108,7 +98,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                             $url=\yii\helpers\Url::to(['chuyen-duyet','id'=>$data->id]);
                                             return Html::a('<span class="glyphicon glyphicon-share-alt"></span>',$url,[
                                                 'title'=>'Chuyển duyệt phiếu',
-                                                'data'=>['method'=>'post']
+                                                'data'=>['method'=>'post'],
+                                                'class'=>'btn btn-default'
+
                                             ]);
                                         }
                                     ],

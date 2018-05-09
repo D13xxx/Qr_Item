@@ -83,6 +83,46 @@ class SanPhamController extends Controller
      */
     public function actionCreate()
     {
+//        $model = new SanPham();
+//
+//        if ($model->load(Yii::$app->request->post())) {
+//            $ngayTao=date("Ymd");
+//            $tienTo='SP_'.$ngayTao;
+//            $model->ma=Dungchung::SinhMa($tienTo.'_','san_pham');
+//            $model->ngay_tao=date("Y-m-d");
+//            $model->nguoi_tao=Yii::$app->user->id;
+//            $model->trang_thai=SanPham::SP_MOI;
+//            $model->anh_qr=$model->ma.'.png';
+//            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
+//            if(!is_null($fileUpload)){
+//                $fileTam=$fileUpload->name;
+//                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/san-pham/';
+//                $path=Yii::$app->params['uploadPath'].$fileTam;
+//                $model->anh_dai_dien=$fileTam;
+//                $fileUpload->saveAs($path);
+//
+//            }
+//            if($model->save())
+//            {
+////                 $url=Yii::$app->urlManagerBackend->baseUrl .'?id='.$model->id;
+//                 $url=Url::to(['/qr-code/view'],true).'?id='.$model->id;
+//
+//                $pathFile=Yii::getAlias('@webroot').'/qr-code/';
+//                $qrCode=(new QrCode($model->ma))->setText($url);
+//                $qrCode->writeFile($pathFile.$model->ma.'.png');
+////                 return print_r($url);
+////                 die();
+//                Yii::$app->session->setFlash('success','Thêm sản phẩm mới thành công.');
+//                return $this->redirect(['view', 'id' => $model->id]);
+//            } else {
+//                Yii::$app->session->setFlash('error','Thêm sản phẩm mới thất bại');
+//                return $this->render('create',['model'=>$model]);
+//            }
+//        }
+//
+//        return $this->render('create', [
+//            'model' => $model,
+//        ]);
         $model = new SanPham();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -93,16 +133,24 @@ class SanPhamController extends Controller
             $model->nguoi_tao=Yii::$app->user->id;
             $model->trang_thai=SanPham::SP_MOI;
             $model->anh_qr=$model->ma.'.png';
+
+            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
+            if(!is_null($fileUpload)){
+                $fileTam=$fileUpload->name;
+                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/san-pham/';
+                $path=Yii::$app->params['uploadPath'].$fileTam;
+                $model->anh_dai_dien=$fileTam;
+                $fileUpload->saveAs($path);
+
+            }
+
             if($model->save())
             {
-                 $url=Yii::$app->urlManagerBackend->baseUrl .'?id='.$model->id;
-//                 $url=Url::to(['/qr-code/view'],true).'?id='.$model->id;
-
+                $url=Url::to(['/qr-code/view'],true).'?id='.$model->id;
+                //return print_r($url);
                 $pathFile=Yii::getAlias('@webroot').'/qr-code/';
                 $qrCode=(new QrCode($model->ma))->setText($url);
                 $qrCode->writeFile($pathFile.$model->ma.'.png');
-//                 return print_r($url);
-//                 die();
                 Yii::$app->session->setFlash('success','Thêm sản phẩm mới thành công.');
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
@@ -125,11 +173,37 @@ class SanPhamController extends Controller
      */
     public function actionUpdate($id)
     {
+//        $model = $this->findModel($id);
+//
+//        if ($model->load(Yii::$app->request->post())) {
+//            $model->nguoi_cap_nhat=Yii::$app->user->id;
+//            $model->ngay_cap_nhat=date("Y-m-d");
+//            if($model->save()){
+//                Yii::$app->session->setFlash('success','Cập nhật thông tin nhóm sản phẩm thành công.');
+//                return $this->redirect(['view', 'id' => $model->id]);
+//            } else {
+//                Yii::$app->session->setFlash('error','Cập nhật thông tin nhóm sản phẩm thất bại');
+//                return $this->render('update',['model'=>$model]);
+//            }
+//        }
         $model = $this->findModel($id);
+        $anhCu=$model->anh_dai_dien;
 
         if ($model->load(Yii::$app->request->post())) {
             $model->nguoi_cap_nhat=Yii::$app->user->id;
             $model->ngay_cap_nhat=date("Y-m-d");
+
+            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
+            if(!is_null($fileUpload)){
+                $fileTam=$fileUpload->name;
+                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/san-pham/';
+                $path=Yii::$app->params['uploadPath'].$fileTam;
+                $model->anh_dai_dien=$fileTam;
+                $fileUpload->saveAs($path);
+
+            } else {
+                $model->anh_dai_dien=$anhCu;
+            }
             if($model->save()){
                 Yii::$app->session->setFlash('success','Cập nhật thông tin nhóm sản phẩm thành công.');
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -138,7 +212,6 @@ class SanPhamController extends Controller
                 return $this->render('update',['model'=>$model]);
             }
         }
-
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -266,7 +339,7 @@ class SanPhamController extends Controller
         $model->trang_thai=SanPham::SP_CHUYEN_DUYET;
         if($model->save()){
             Yii::$app->session->setFlash('success','Chuyển duyệt thành công');
-            return $this->redirect('index.php?r=kiem-duyet-san-pham/index');
+            return $this->redirect('../kiem-duyet-san-pham/index');
         }
     }
 

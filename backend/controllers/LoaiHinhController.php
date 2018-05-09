@@ -171,7 +171,7 @@ class LoaiHinhController extends Controller
         $model->trang_thai=LoaiHinh::CHO_KIEM_DUYET;
         if($model->save()){
             Yii::$app->session->setFlash('success','Chuyển duyệt loại hình thành công');
-            return $this->redirect('index.php?r=kiem-duyet-loai-hinh/index');
+            return $this->redirect('../kiem-duyet-loai-hinh/index');
         }
     }
 

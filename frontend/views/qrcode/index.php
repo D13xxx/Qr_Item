@@ -7,7 +7,7 @@ use kartik\grid\GridView;
 /* @var $searchModel backend\models\SanPhamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sản phẩm';
+$this->title = 'Danh mục sản phẩm';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="san-pham-index">
@@ -37,6 +37,21 @@ $this->params['breadcrumbs'][] = $this->title;
                         {
                             {
                              return Html::img('@FakeLink/'. $data->anh_qr,[
+                                    'style'=>[
+                                        'width'=>'120px',
+                                        'height'=>'120px',
+                                    ]
+                                ]);
+                            }
+                        }
+                    ],
+                    [
+                        'label'=>'Ảnh đại diện',
+                        'format'=>'raw',
+                        'value'=>function($data)
+                        {
+                            {
+                             return Html::img('@FakeLinkSanPham/'. $data->anh_dai_dien,[
                                     'style'=>[
                                         'width'=>'120px',
                                         'height'=>'120px',

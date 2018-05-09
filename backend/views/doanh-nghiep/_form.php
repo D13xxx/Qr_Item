@@ -27,6 +27,11 @@ use yii\helpers\Url;
     <?php }
     ?>
 
+    <?= $form->field($model,'logo_doanh_nghiep')->widget(\kartik\file\FileInput::className(),[
+        'options'=>['accept'=>['*']],
+        'pluginOptions'=>['allowedFileExtensions'=>['jpg','jpeg','bmp','png','gif'],'showUpload'=>false]
+    ])?>
+
     <?= $form->field($model, 'ten')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ten_giao_dich')->textInput(['maxlength' => true]) ?>
@@ -40,7 +45,7 @@ use yii\helpers\Url;
     <?= $form->field($model, 'dien_thoai')->textInput(['maxlength' => true]) ?>
 
     <?php
-    $loaiHinh=\backend\models\LoaiHinh::find()->all();
+    $loaiHinh=\app\models\LoaiHinh::find()->all();
     $listLoaiHinh=\yii\helpers\ArrayHelper::map($loaiHinh,'id','ten');
     ?>
     <?= $form->field($model, 'loai_hinh_id')->dropDownList($listLoaiHinh,['prompt'=>'Chọn loại hình doanh nghiệp ....']) ?>

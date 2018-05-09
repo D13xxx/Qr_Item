@@ -44,7 +44,7 @@ class KiemDuyetDoanhNghiepController extends \yii\web\Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Đã kiểm duyệt thành công.');
-            return $this->redirect('index.php?r=doanh-nghiep/kiem-duyet');
+            return $this->redirect('../doanh-nghiep/kiem-duyet');
         }
 
 
@@ -67,7 +67,7 @@ class KiemDuyetDoanhNghiepController extends \yii\web\Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Chuyển lại đề nghị thành công.');
-            return $this->redirect('index.php?r=doanh-nghiep/index');
+            return $this->redirect('../doanh-nghiep/index');
         }
     }
 

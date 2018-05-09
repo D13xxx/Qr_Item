@@ -176,7 +176,7 @@ class DoanhNghiepController extends Controller
         if($model->save()){
             Yii::$app->session->setFlash('success','Chuyển duyệt thành công!');
             // return $this->redirect('index.php?r=index');
-            return $this->redirect('index.php?r=kiem-duyet-doanh-nghiep/index');
+            return $this->redirect('../kiem-duyet-doanh-nghiep/index');
         }
     }
 

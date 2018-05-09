@@ -59,7 +59,7 @@ class KiemDuyetLoaiHinhController extends \yii\web\Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Kiểm duyệt thành công');
-            return $this->redirect('index.php?r=loai-hinh/kiem-duyet');
+            return $this->redirect('../loai-hinh/kiem-duyet');
         }
     }
 
@@ -71,7 +71,7 @@ class KiemDuyetLoaiHinhController extends \yii\web\Controller
 
         $model->trang_thai=LoaiHinh::KHONG_DUYET;
         $model->save();
-        return $this->redirect('index.php?r=kiem-duyet-loai-hinh/index');
+        return $this->redirect('../loai-hinh/index');
     }
 
     protected function findModel($id)

@@ -61,7 +61,7 @@ class KiemDuyetNhomSanPhamController extends \yii\web\Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Đã duyệt nhóm sản phẩm thành công.');
-            return $this->redirect('index.php?r=nhom-san-pham/da-duyet');
+            return $this->redirect('../nhom-san-pham/da-duyet');
         }
     }
 
@@ -74,7 +74,7 @@ class KiemDuyetNhomSanPhamController extends \yii\web\Controller
         if($model->save())
         {
             Yii::$app->session->setFlash('success','Không duyệt nhóm sản phẩm thành công.');
-            return $this->redirect('index.php?r=nhom-san-pham/index');
+            return $this->redirect('../nhom-san-pham/index');
         }
     }
 

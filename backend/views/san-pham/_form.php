@@ -28,6 +28,10 @@ use yii\widgets\ActiveForm;
 
                         <?= $form->field($model, 'ten')->textInput(['maxlength' => true]) ?>
 
+                        <?= $form->field($model,'anh_dai_dien')->widget(\kartik\file\FileInput::className(),[
+                            'options'=>['accept'=>['*']],
+                            'pluginOptions'=>['allowedFileExtensions'=>['jpg','jpeg','bmp','png','gif'],'showUpload'=>false]
+                        ])?>
 
                         <?php
                         $nhomSP=\backend\models\NhomSanPham::find()->where(['trang_thai'=>\backend\models\NhomSanPham::NHOM_DA_DUYET])->all();
@@ -40,9 +44,6 @@ use yii\widgets\ActiveForm;
                             ],
                             'pluginOptions'=>['allowClear'=>true],
                         ]) ?>
-
-
-
 
                         <?php
                         $doanhNghiep=\app\models\DoanhNghiep::find()->where(['trang_thai'=>\app\models\DoanhNghiep::DN_DUYET])->all();

@@ -99,6 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-ok"></span>',$url,[
                                     'title'=>'Duyệt doanh nghiệp',
                                     'data'=>['method'=>'post'],
+                                    'class'=>'btn btn-success'
                                 ]);
                             },
                             'khong-duyet'=>function($url,$data){
@@ -106,6 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a('<span class="glyphicon glyphicon-remove"></span>',$url,[
                                     'title'=>'Không duyệt doanh nghiệp',
                                     'data'=>['method'=>'post'],
+                                    'class'=>'btn btn-danger'
                                 ]);
                             }
                         ],
