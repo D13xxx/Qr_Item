@@ -59,18 +59,19 @@ return [
             'class' => 'yii\web\UrlManager',
             // 'showScriptName' => false,  // Disable index.php
             'enablePrettyUrl' => true,  // Disable r= routes
-            // 'suffix' => '.php',
+//             'suffix' => '.html',
             'rules' => array(
               
             ),
         ],
-        
-       // 'urlManager' => [
-       //     'enablePrettyUrl' => true,
-       //     'showScriptName' => false,
-       //     'rules' => [
-       //     ],
-       // ],
+//        'as access' => [
+//            'class' => 'mdm\admin\components\AccessControl',
+//            'allowActions' => [
+//                'site/*',
+//                'admin/*',
+//            ]
+//        ],
+
           'urlManagerBackend'=>[
              'enablePrettyUrl' => true,
              'class' => 'yii\web\UrlManager',

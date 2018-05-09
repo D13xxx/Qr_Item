@@ -8,15 +8,15 @@ use app\models\DoanhNghiep;
 /* @var $searchModel app\models\DoanhNghiepSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Doanh Nghiệp';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục doanh nghiệp";
 ?>
+<br>
 <div class="doanh-nghiep-index">
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
         <div class="panel-group">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Thông tin nhóm sản phẩm</div>
+                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Danh sách doanh nghiệp chờ kiểm duyệt</div>
                     <div class="panel-body">
                         <?php \yii\widgets\Pjax::begin( ['enablePushState'=>false])?>
                         <?= GridView::widget([

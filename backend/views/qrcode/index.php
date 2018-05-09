@@ -7,15 +7,16 @@ use kartik\grid\GridView;
 /* @var $searchModel backend\models\SanPhamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sản phẩm';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh sách sản phẩm";
 ?>
+<br>
 <div class="san-pham-index">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title)?>
+                Danh sách sản phẩm
             </h4>
         </div>
         <div class="panel-body">
@@ -23,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'tableOptions' => [
-                    //'id' => 'BangDuLieu1',
                     'class'=>'table table-striped table-bordered'
                 ],
                 'pager' => [
@@ -88,7 +88,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value'=>function($data)
                         {
                             $nhomSP=\backend\models\NhomSanPham::find()->where(['id'=>$data->nhom_san_pham_id])->one();
-                            // return Html::a($nhomSP->ten,['view','id'=>$data->id]);
                             return $nhomSP->ten;
                         }
                     ],

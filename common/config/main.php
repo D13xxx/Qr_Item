@@ -12,19 +12,10 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
         ],
-
-//        'user' => [
-//            'identityClass' => 'mdm\admin\models\User',
-//            'loginUrl' => ['admin/user/login'],
-//        ],
-//            'user' => [
-//            'class' => 'mdm\admin\models\User',
-//            'identityClass' => 'mdm\admin\models\User',
-//            'loginUrl' => ['admin/user/login'],
-////                'enableAutoLogin' => true,
-            'user' => [
+        'user' => [
             'identityClass' => 'mdm\admin\models\User',
             'loginUrl' => ['admin/user/login'],
+             'enableAutoLogin' => false,
         ]
     ],
 
@@ -37,7 +28,7 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'admin/*',
+            'frontend/*',
         ]
     ],
 

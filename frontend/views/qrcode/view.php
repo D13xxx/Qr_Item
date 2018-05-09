@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'label'=>'QR-CODE',
                         'format'=>'raw',
+//                        'class'=>'col-sm-12',
                         'value'=>function($data)
                         {
                          return Html::img('@FakeLink/'. $data->anh_qr,[

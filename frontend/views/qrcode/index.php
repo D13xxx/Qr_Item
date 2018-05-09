@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'tableOptions' => [
-                    'class'=>'table table-striped table-bordered'
+                    'class'=>'table table-striped table-bordered col-12'
                 ],
                 'pager' => [
                     'options'=>['class'=>'pagination pull-right'],

@@ -7,13 +7,14 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\LoaiHinhSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Loại hình doanh nghiệp';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục loại hình doanh nghiệp";
 ?>
+<br>
 <div class="loai-hinh-index">
         <div class="panel-group">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Thông tin loại hình doanh nghiệp</div>
+                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Danh mục loại hình doanh nghiệp</div>
                     <div class="panel-body">
                         <?php \yii\widgets\Pjax::begin( ['enablePushState'=>false])?>
                         <?= GridView::widget([

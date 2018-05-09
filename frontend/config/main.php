@@ -47,15 +47,16 @@ return [
             'class' => 'yii\web\UrlManager',
 //             'showScriptName' => false,  // Disable index.php
             'enablePrettyUrl' => true,  // Disable r= routes
-            // 'rule'
         ],
-//        'view' => [
-//            'theme' => [
-//                'pathMap' => [
-//                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-//                ],
-//            ],
+//        'as access' => [
+//            'class' => 'mdm\admin\components\AccessControl',
+//            'allowActions' => [
+////                'site/*',
+////                'admin/*',
+//                'enableAutoLogin' => false,
+//            ]
 //        ],
+
     ],
     'params' => $params,
 ];

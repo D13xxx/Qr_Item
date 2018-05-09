@@ -6,16 +6,17 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\SanPham */
 
-$this->title ='Thông tin sản phẩm: ' .$model->ma;
+$this->title ='';
 $this->params['breadcrumbs'][] = ['label' => 'Sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = "Chi tiết sản phẩm";
 ?>
+<br>
 <div class="san-pham-view">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title) ?>
+                Chi tiết sản phẩm
             </h4>
         </div>
         <div class="panel-body">

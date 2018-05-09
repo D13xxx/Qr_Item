@@ -13,15 +13,15 @@ use kartik\grid\GridView;
 /* @var $searchModel backend\models\SanPhamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Sản phẩm';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục sản phẩm đã duyệt";
 ?>
+<br>
 <div class="san-pham-index">
-
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title)?>
+                Danh mục sản phẩm đã duyệt
             </h4>
         </div>
         <div class="panel-body">

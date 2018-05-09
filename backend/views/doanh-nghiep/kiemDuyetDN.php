@@ -9,15 +9,16 @@ use app\models\LoaiHinh;
 /* @var $searchModel app\models\DoanhNghiepSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Doanh nghiệp';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục doanh nghiệp đã duyệt";
 ?>
+<br>
 <div class="doanh-nghiep-index">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title)?>
+                Danh mục doanh nghiệp
             </h4>
         </div>
         <div class="panel-body">

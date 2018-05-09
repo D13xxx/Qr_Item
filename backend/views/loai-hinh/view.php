@@ -5,15 +5,16 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\LoaiHinh */
-
+$this->title = '';
 $this->params['breadcrumbs'][] = ['label' => 'Loại Hình', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $model->ten;
 ?>
+<br>
 <div class="loai-hinh-view">
         <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title) ?>
+                Thông tin chi tiết loại hình doanh nghiệp
             </h4>
         </div>
         <div class="panel-body">

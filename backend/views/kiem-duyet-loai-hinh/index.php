@@ -9,15 +9,15 @@ use kartik\date;
 /* @var $searchModel app\models\LoaiHinhSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Loại hình doanh nghiệp';
-$this->params['breadcrumbs'][] = $this->title;
-?>
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục loại hình doanh nghiệp";
+?><br>
 <div class="loai-hinh-index">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title)?>
+                Danh mục loại hình doanh nghiệp
             </h4>
         </div>
         <div class="panel-body">

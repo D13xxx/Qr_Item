@@ -7,14 +7,14 @@ use kartik\grid\GridView;
 /* @var $searchModel backend\models\SanPhamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Danh mục sản phẩm';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục sản phẩm";
 ?>
+<br>
 <div class="san-pham-index">
-
         <div class="panel-group">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Thông tin nhóm sản phẩm</div>
+                    <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>Thông tin sản phẩm</div>
                     <div class="panel-body">
                         <?php \yii\widgets\Pjax::begin( ['enablePushState'=>false])?>
                         <?= GridView::widget([
@@ -43,16 +43,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'attribute'=>'ten',
                                     'contentOptions'=>['style'=>['vertical-align'=>'middle']],
                                 ],
-                                [
-                                    'attribute'=>'nguoi_tao',
-                                    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
-                                    'filter'=>\yii\helpers\ArrayHelper::map(\common\models\User::find()->all(),'id','username'),
-                                    'value'=>function($data)
-                                    {
-                                        $nguoiTao=\common\models\User::find()->where(['id'=>$data->nguoi_tao])->one();
-                                        return $nguoiTao->username;
-                                    }
-                                ],
+//                                [
+//                                    'attribute'=>'nguoi_tao',
+//                                    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
+//                                    'filter'=>\yii\helpers\ArrayHelper::map(\common\models\User::find()->all(),'id','username'),
+//                                    'value'=>function($data)
+//                                    {
+//                                        $nguoiTao=\common\models\User::find()->where(['id'=>$data->nguoi_tao])->one();
+//                                        return $nguoiTao->username;
+//                                    }
+//                                ],
                                 [
                                     'attribute'=>'doanh_nghiep_id',
                                     'contentOptions'=>['style'=>['vertical-align'=>'middle']],
@@ -85,23 +85,23 @@ $this->params['breadcrumbs'][] = $this->title;
                                         return $nhomSP->ten;
                                     }
                                 ],
-                                [
-                                    'attribute'=>'ngay_tao',
-                                    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
-                                    'filter'=>\kartik\widgets\DatePicker::widget([
-                                        'model'=>$searchModel,
-                                        'attribute'=>'ngay_tao',
-                                        'pluginOptions'=>[
-                                            'format'=>'dd/mm/yyyy',
-                                            'autoclose'=>true,
-                                            'todayHighlight'=>true,
-                                        ],
-                                    ]),
-                                    'value'=>function($data)
-                                    {
-                                        return date("d/m/Y",strtotime($data->ngay_tao));
-                                    }
-                                ],
+//                                [
+//                                    'attribute'=>'ngay_tao',
+//                                    'contentOptions'=>['style'=>['vertical-align'=>'middle']],
+//                                    'filter'=>\kartik\widgets\DatePicker::widget([
+//                                        'model'=>$searchModel,
+//                                        'attribute'=>'ngay_tao',
+//                                        'pluginOptions'=>[
+//                                            'format'=>'dd/mm/yyyy',
+//                                            'autoclose'=>true,
+//                                            'todayHighlight'=>true,
+//                                        ],
+//                                    ]),
+//                                    'value'=>function($data)
+//                                    {
+//                                        return date("d/m/Y",strtotime($data->ngay_tao));
+//                                    }
+//                                ],
                                 [
                                     'attribute'=>'trang_thai',
                                     'contentOptions'=>['style'=>['vertical-align'=>'middle']],

@@ -5,19 +5,15 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\DoanhNghiep */
-
-$this->params['breadcrumbs'][] = ['label' => 'Doanh nghiệp', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $model->ten;
+$this->title='';
+//$this->params['breadcrumbs'][] = ['label' => 'Doanh nghiệp', 'url' => ['index']];
+$this->params['breadcrumbs'][] = 'Chi tiết doanh nghiệp';
 ?>
+<br>
 <div class="doanh-nghiep-view">
-
-    <p>
-        <?= Html::a('<i class="glyphicon glyphicon-arrow-left"></i> Quay lại trang hiện thị', ['index'], ['class' => 'btn btn-default']
-        ) ?>
-    </p>
     <div class="panel-group">
         <div class="panel panel-primary">
-            <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i> Thông tin chi tiết : Tên <?= $model->ten?> - Mã : <?= $model->ma?>
+            <div class="panel-heading">* <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i> Thông tin chi tiết doanh nghiệp
             </div>
             <div class="panel-body">
                 <?= DetailView::widget([
@@ -132,5 +128,4 @@ $this->params['breadcrumbs'][] = $model->ten;
             </div>
         </div>
     </div>
-
 </div>

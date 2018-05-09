@@ -6,23 +6,24 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\SanPham */
 
-$this->title ='Thông tin sản phẩm: ' .$model->ma;
+$this->title ='';
 $this->params['breadcrumbs'][] = ['label' => 'Sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = "Danh mục chi tiết sản phẩm";
 ?>
+<br>
 <div class="san-pham-view">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title) ?>
+                Chi tiết sản phẩm
             </h4>
         </div>
         <div class="panel-body">
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
-                    'id',
+//                    'id',
                     [
                         'attribute'=>'anh_qr',
                         'format'=>'raw',
@@ -121,7 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format'=>'raw',
                         'value'=>function($data){
                             if($data->san_pham_id!=0){
-                                $sanPham=\app\models\SanPham::find()->where(['id'=>$data->san_pham_id])->one();
+                                $sanPham=\backend\models\SanPham::find()->where(['id'=>$data->san_pham_id])->one();
                                 return Html::img(Yii::getAlias('@web').'/qr-code/'.$sanPham->anh_qr,[
                                     'style'=>[
                                         'width'=>'100px',
@@ -140,7 +141,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             if($data->san_pham_id==0){
                                 return 'Là sản phẩm gốc';
                             } else {
-                                $sanPham=\app\models\SanPham::find()->where(['id'=>$data->san_pham_id])->one();
+                                $sanPham=\backend\models\SanPham::find()->where(['id'=>$data->san_pham_id])->one();
                                 return $sanPham->ten;
                             }
                         }

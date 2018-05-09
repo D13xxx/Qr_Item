@@ -8,15 +8,16 @@ use backend\models\NhomSanPham;
 /* @var $searchModel backend\models\NhomSanPhamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Nhóm sản phẩm';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '';
+$this->params['breadcrumbs'][] = "Danh mục kiểm duyệt nhóm sản phẩm";
 ?>
+<br>
 <div class="nhom-san-pham-index">
 
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <?= Html::encode($this->title)?>
+               <p>Danh mục kiểm duyệt nhóm sản phẩm</p>
             </h4>
         </div>
         <div class="panel-body">
