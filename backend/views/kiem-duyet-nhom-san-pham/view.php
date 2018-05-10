@@ -2,14 +2,15 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use app\models\NhomSanPham;
+use backend\models\NhomSanPham;
 /* @var $this yii\web\View */
 /* @var $model app\models\NhomSanPham */
 
-$this->title ='Thông tin nhóm sản phẩm: '. $model->ma;
-$this->params['breadcrumbs'][] = ['label' => 'Nhóm sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title ='';
+//$this->params['breadcrumbs'][] = ['label' => 'Nhóm sản phẩm', 'url' => ['index']];
+$this->params['breadcrumbs'][] = "Kiểm duyệt nhóm sản phẩm";
 ?>
+<br>
 <div class="nhom-san-pham-view">
 
     <div class="panel panel-primary">

@@ -6,10 +6,11 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\SanPham */
 
-$this->title = 'Danh mục chi tiết sản phẩm';
-$this->params['breadcrumbs'][] = ['label' => 'Danh mục sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $model->ten;
+$this->title = '';
+//$this->params['breadcrumbs'][] = ['label' => 'Danh mục sản phẩm', 'url' => ['index']];
+$this->params['breadcrumbs'][] = "Chi tiết sản phẩm";
 ?>
+<br>
 <div class="san-pham-view">
 
     <div class="panel-group">

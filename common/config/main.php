@@ -28,8 +28,19 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'frontend/*',
+            'admin/*',
+//            'rules' => [
+//                [
+//                    'allow' => true,
+//                    'actions' => ['login', 'signup'],
+//                    'roles' => ['?'],
+//                ],
+//                [
+//                    'allow' => true,
+//                    'actions' => ['logout'],
+//                    'roles' => ['@'],
+//                ],
+//            ],
         ]
     ],
-
 ];

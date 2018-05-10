@@ -41,8 +41,6 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
-        
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
 //             'showScriptName' => false,  // Disable index.php

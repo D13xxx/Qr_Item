@@ -14,10 +14,11 @@ use kartik\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\SanPham */
 
-$this->title ='Thông tin sản phẩm: ' .$model->ma;
-$this->params['breadcrumbs'][] = ['label' => 'Sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title ='';
+//$this->params['breadcrumbs'][] = ['label' => 'Sản phẩm', 'url' => ['index']];
+$this->params['breadcrumbs'][] = "Thông tin chi tiết sản phẩm";
 ?>
+<br>
 <div class="san-pham-view">
 
     <div class="panel panel-primary">
