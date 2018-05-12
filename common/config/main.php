@@ -29,18 +29,7 @@ return [
         'allowActions' => [
             'site/*',
             'admin/*',
-//            'rules' => [
-//                [
-//                    'allow' => true,
-//                    'actions' => ['login', 'signup'],
-//                    'roles' => ['?'],
-//                ],
-//                [
-//                    'allow' => true,
-//                    'actions' => ['logout'],
-//                    'roles' => ['@'],
-//                ],
-//            ],
+
         ]
     ],
 ];

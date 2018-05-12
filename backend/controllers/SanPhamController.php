@@ -83,85 +83,38 @@ class SanPhamController extends Controller
      */
     public function actionCreate()
     {
-//        $model = new SanPham();
-//
-//        if ($model->load(Yii::$app->request->post())) {
-//            $ngayTao=date("Ymd");
-//            $tienTo='SP_'.$ngayTao;
-//            $model->ma=Dungchung::SinhMa($tienTo.'_','san_pham');
-//            $model->ngay_tao=date("Y-m-d");
-//            $model->nguoi_tao=Yii::$app->user->id;
-//            $model->trang_thai=SanPham::SP_MOI;
-//            $model->anh_qr=$model->ma.'.png';
-//            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
-//            if(!is_null($fileUpload)){
-//                $fileTam=$fileUpload->name;
-//                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/san-pham/';
-//                $path=Yii::$app->params['uploadPath'].$fileTam;
-//                $model->anh_dai_dien=$fileTam;
-//                $fileUpload->saveAs($path);
-//
-//            }
-//            if($model->save())
-//            {
-////                 $url=Yii::$app->urlManagerBackend->baseUrl .'?id='.$model->id;
-//                 $url=Url::to(['/qr-code/view'],true).'?id='.$model->id;
-//
-//                $pathFile=Yii::getAlias('@webroot').'/qr-code/';
-//                $qrCode=(new QrCode($model->ma))->setText($url);
-//                $qrCode->writeFile($pathFile.$model->ma.'.png');
-////                 return print_r($url);
-////                 die();
-//                Yii::$app->session->setFlash('success','Thêm sản phẩm mới thành công.');
-//                return $this->redirect(['view', 'id' => $model->id]);
-//            } else {
-//                Yii::$app->session->setFlash('error','Thêm sản phẩm mới thất bại');
-//                return $this->render('create',['model'=>$model]);
-//            }
-//        }
-//
-//        return $this->render('create', [
-//            'model' => $model,
-//        ]);
-        $model = new SanPham();
+               $model = new SanPham();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $ngayTao=date("Ymd");
-            $tienTo='SP_'.$ngayTao;
-            $model->ma=Dungchung::SinhMa($tienTo.'_','san_pham');
-            $model->ngay_tao=date("Y-m-d");
-            $model->nguoi_tao=Yii::$app->user->id;
-            $model->trang_thai=SanPham::SP_MOI;
-            $model->anh_qr=$model->ma.'.png';
-
-            $fileUpload=UploadedFile::getInstance($model,'anh_dai_dien');
-            if(!is_null($fileUpload)){
-                $fileTam=$fileUpload->name;
-                Yii::$app->params['uploadPath']=Yii::$app->basePath .'/web/images/san-pham/';
-                $path=Yii::$app->params['uploadPath'].$fileTam;
-                $model->anh_dai_dien=$fileTam;
-                $fileUpload->saveAs($path);
-
-            }
-
-            if($model->save())
-            {
-                $url=Url::to(['/qr-code/view'],true).'?id='.$model->id;
-                //return print_r($url);
-                $pathFile=Yii::getAlias('@webroot').'/qr-code/';
-                $qrCode=(new QrCode($model->ma))->setText($url);
-                $qrCode->writeFile($pathFile.$model->ma.'.png');
-                Yii::$app->session->setFlash('success','Thêm sản phẩm mới thành công.');
-                return $this->redirect(['view', 'id' => $model->id]);
+                if ($model->load(Yii::$app->request->post())) {
+                    $ngayTao=date("Ymd");
+                    $tienTo='SP_'.$ngayTao;
+                    $model->ma=Dungchung::SinhMa($tienTo.'_','san_pham');
+                    $model->ngay_tao=date("Y-m-d");
+                    $model->nguoi_tao=Yii::$app->user->id;
+                    $model->trang_thai=SanPham::SP_MOI;
+                    $model->anh_qr=$model->ma.'.png';
+                    if($model->save())
+                        {
+                             $url=Yii::$app->urlManagerBackend->baseUrl .'?id='.$model->id;
+//                             baseUrl = 'baseUrl' =>  'http://ngogiadiep.local:8080/ThucTap/RBAC/frontend/web/index.php/qrcode/view'
+//fix cứng url sang frontend
+                            $pathFile=Yii::getAlias('@webroot').'/qr-code/';
+//  Lấy linh từ webroot theo $url
+                            $qrCode=(new QrCode($model->ma))->setText($url);
+                            $qrCode->writeFile($pathFile.$model->ma.'.png');
+//                             return print_r($url);
+//                             die();
+                            Yii::$app->session->setFlash('success','Thêm sản phẩm mới thành công.');
+                            return $this->redirect(['view', 'id' => $model->id]);
             } else {
-                Yii::$app->session->setFlash('error','Thêm sản phẩm mới thất bại');
-                return $this->render('create',['model'=>$model]);
+                            Yii::$app->session->setFlash('error','Thêm sản phẩm mới thất bại');
+                           return $this->render('create',['model'=>$model]);
             }
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+       return $this->render('create', [
+                    'model' => $model,
+                ]);
     }
 
     /**
